@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rin vs Hinata - Naruto Vote</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", sans-serif;
+      height: 100vh;
+      display: flex;
+      color: #fff;
+      text-align: center;
+      background: url("naruto-bg.jpg") no-repeat center center/cover;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      justify-content: space-evenly;
+      align-items: center;
+      background: rgba(0,0,0,0.5); /* dim effect */
+    }
+
+    .side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    img {
+      width: 180px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 3px solid #fff;
+      box-shadow: 0px 0px 15px rgba(255,255,255,0.7);
+      margin-bottom: 15px;
+    }
+
+    button {
+      background: #ff9900;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #ff6600;
+      transform: scale(1.05);
+    }
+
+    .quote-box {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      background: rgba(0,0,0,0.6);
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Rin Side -->
+    <div class="side">
+      <h2>Rin</h2>
+      <img src="rin.jpg" alt="Rin">
+      <button onclick="vote('rin')">Vote Rin</button>
+      <div class="quote-box" id="rin-quote">Click vote to see a quote!</div>
+    </div>
+
+    <!-- Hinata Side -->
+    <div class="side">
+      <h2>Hinata</h2>
+      <img src="hinata.jpg" alt="Hinata">
+      <button onclick="vote('hinata')">Vote Hinata</button>
+      <div class="quote-box" id="hinata-quote">Click vote to see a quote!</div>
+    </div>
+  </div>
+
+  <script>
+    const rinQuotes = [
+      "Obito... Kakashi... I believe in you both.",
+      "I’ll always support my friends, no matter what.",
+      "Even in darkness, there’s always light.",
+      "Teamwork makes us strong!"
+    ];
+
+    const hinataQuotes = [
+      "Naruto-kun... I’ll never give up on you!",
+      "My strength comes from protecting those I love.",
+      "Even if I fall, I’ll stand up again.",
+      "I believe in you, Naruto!"
+    ];
+
+    function vote(character) {
+      if (character === "rin") {
+        let quote = rinQuotes[Math.floor(Math.random() * rinQuotes.length)];
+        document.getElementById("rin-quote").innerText = quote;
+        new Audio("rin.mp3").play();
+      } else {
+        let quote = hinataQuotes[Math.floor(Math.random() * hinataQuotes.length)];
+        document.getElementById("hinata-quote").innerText = quote;
+        new Audio("hinata.mp3").play();
+      }
+    }
+  </script>
+</body>
+</html>
